@@ -24,7 +24,6 @@ export default class ValiationForm extends React.Component {
   validate = () => {
     let nameError = "";
     let emailError = "";
-    // let passwordError = "";
 
     if (!this.state.name) {
       nameError = "name cannot be blank";
@@ -47,7 +46,6 @@ export default class ValiationForm extends React.Component {
     const isValid = this.validate();
     if (isValid) {
       console.log(this.state);
-      // clear form
       this.setState(initialState);
     }
   };
