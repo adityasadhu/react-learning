@@ -7,9 +7,9 @@ export default class MyForm extends Component {
     title: "A"
   };
 
-  handleChange = event => {
+  handleChange = (event, fieldName, isCheckbox) => {
     this.setState({
-      name: event.target.value
+      [fieldName]: isCheckbox ? event.target.checked : event.target.value
     });
   };
 
@@ -19,22 +19,24 @@ export default class MyForm extends Component {
     });
   };
 
-  handleSelect = event => {
-    this.setState({ title: event.target.value });
-  };
-
   render() {
     return (
       <div>
-        <input onChange={this.handleChange} />
+        <input
+          value={this.state.name}
+          onChange={event => this.handleChange(event, "name")}
+        />
         <p>{this.state.name}</p>
         <input
           type="checkbox"
           checked={this.state.rememberMe}
-          onChange={this.handleCheckBox}
+          onChange={event => this.handleChange(event, "rememberMe", true)}
         />
         <div>
-          <select value={this.state.title} onChange={this.handleSelect}>
+          <select
+            value={this.state.title}
+            onChange={event => this.handleChange(event, "title")}
+          >
             <option>A</option>
             <option>B</option>
             <option>C</option>
