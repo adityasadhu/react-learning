@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import ImageSlider from "./components/ImageSlider";
+import Counter from "./components/Counter";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+export default class App extends Component {
+  state = {
+    visible: true
+  };
+
+  render() {
+    const buttonText = this.state.visible ? "hide" : "show";
+
+    return (
+      <div className="App">
+        {this.state.visible ? (
+          <ImageSlider />
+        ) : (
+          <div>
+            <Counter />
+          </div>
+        )}
+        <button
+          onClick={() => {
+            this.setState({ visible: !this.state.visible });
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          {buttonText}
+        </button>
+      </div>
+    );
+  }
 }
-
-export default App;
