@@ -7,42 +7,48 @@ export default class MyForm extends Component {
     title: "A"
   };
 
-  handleChange = (event, fieldName, isCheckbox) => {
+  handleChange = event => {
+    const isCheckbox = event.target.type === "checkbox";
     this.setState({
-      [fieldName]: isCheckbox ? event.target.checked : event.target.value
+      [event.target.name]: isCheckbox
+        ? event.target.checked
+        : event.target.value
     });
   };
 
-  handleCheckBox = event => {
-    this.setState({
-      rememberMe: event.target.checked
-    });
+  handleSubmit = event => {
+    event.preventDefault();
+    console.log(this.state);
   };
 
   render() {
     return (
-      <div>
+      <form onSubmit={this.handleSubmit}>
         <input
+          name="name"
           value={this.state.name}
-          onChange={event => this.handleChange(event, "name")}
+          onChange={this.handleChange}
         />
         <p>{this.state.name}</p>
         <input
+          name="rememberMe"
           type="checkbox"
           checked={this.state.rememberMe}
-          onChange={event => this.handleChange(event, "rememberMe", true)}
+          onChange={this.handleChange}
         />
         <div>
           <select
+            name="title"
             value={this.state.title}
-            onChange={event => this.handleChange(event, "title")}
+            onChange={this.handleChange}
           >
             <option>A</option>
             <option>B</option>
             <option>C</option>
           </select>
         </div>
-      </div>
+        <button type="submit">submit</button>
+      </form>
     );
   }
 }
