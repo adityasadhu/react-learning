@@ -1,36 +1,26 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-export default class Counter extends Component {
-  state = {
-    count: 0
-  };
+const Counter = () => {
+  // state = {
+  //   count: 0
+  // };
 
-  increment = () => {
-    this.setState({
-      count: this.state.count + 1
-    });
-  };
+  const [count, setCount] = useState(0);
 
-  decrement = () => {
-    this.setState({
-      count: this.state.count - 1
-    });
-  };
+  const increment = () => setCount(count + 1);
 
-  reset = () => {
-    this.setState({
-      count: 0
-    });
-  };
+  const decrement = () => setCount(count - 1);
 
-  render() {
-    return (
-      <div>
-        <div> count: {this.state.count} </div>
-        <button onClick={this.increment}>increment</button>
-        <button onClick={this.decrement}>decrement</button>
-        <button onClick={this.reset}> reset</button>
-      </div>
-    );
-  }
-}
+  const reset = () => setCount(0);
+
+  return (
+    <div>
+      <div> count: {count} </div>
+      <button onClick={increment}>increment</button>
+      <button onClick={decrement}>decrement</button>
+      <button onClick={reset}> reset</button>
+    </div>
+  );
+};
+
+export default Counter;

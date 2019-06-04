@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
-import ValidationForm from "./components/ValidationForm";
+import Counter from "./components/Counter";
 
 export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <ValidationForm />
+        <Counter />
       </div>
     );
   }
