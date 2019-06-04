@@ -71,7 +71,7 @@ export default class ValiationForm extends React.Component {
         <div>
           <TextField
             label="email"
-            placeholder="email"
+            name="email"
             value={this.state.email}
             margin="normal"
             variant="outlined"
@@ -83,6 +83,7 @@ export default class ValiationForm extends React.Component {
         </div>
         <div>
           <TextField
+            name="password"
             type="password"
             label="password"
             placeholder="password"
@@ -98,6 +99,7 @@ export default class ValiationForm extends React.Component {
         <Button variant="contained" color="primary" type="submit">
           submit
         </Button>
+        <div>{JSON.stringify(this.state, null, 2)}</div>
       </form>
     );
   }
