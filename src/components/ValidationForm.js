@@ -1,4 +1,6 @@
 import React from "react";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
 const initialState = {
   name: "",
@@ -54,10 +56,12 @@ export default class ValiationForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <div>
-          <input
+          <TextField
             name="name"
-            placeholder="name"
+            label="name"
             value={this.state.name}
+            margin="normal"
+            variant="outlined"
             onChange={this.handleChange}
           />
           <div style={{ fontSize: 12, color: "red" }}>
@@ -65,10 +69,12 @@ export default class ValiationForm extends React.Component {
           </div>
         </div>
         <div>
-          <input
-            name="email"
+          <TextField
+            label="email"
             placeholder="email"
             value={this.state.email}
+            margin="normal"
+            variant="outlined"
             onChange={this.handleChange}
           />
           <div style={{ fontSize: 12, color: "red" }}>
@@ -76,18 +82,22 @@ export default class ValiationForm extends React.Component {
           </div>
         </div>
         <div>
-          <input
+          <TextField
             type="password"
-            name="password"
+            label="password"
             placeholder="password"
             value={this.state.password}
+            margin="normal"
+            variant="outlined"
             onChange={this.handleChange}
           />
           <div style={{ fontSize: 12, color: "red" }}>
             {this.state.passwordError}
           </div>
         </div>
-        <button type="submit">submit</button>
+        <Button variant="contained" color="primary" type="submit">
+          submit
+        </Button>
       </form>
     );
   }

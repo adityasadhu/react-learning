@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
-import FetchRandomUser from "./components/FetchRandomUser";
-import TodoList from "./components/TodoList";
+import ValidationForm from "./components/ValidationForm";
 
 export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <TodoList />
+        <ValidationForm />
       </div>
     );
   }
