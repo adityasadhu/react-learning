@@ -1,15 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 const Counter = () => {
-  // state = {
-  //   count: 0
-  // };
-
-  // const [count, setCount] = useState(0);
-  // const [person, setPerson] = useState(null);
-  // const [loading, setLoading] = useState(true);
-  // const [countClicked, setCountClicked] = useState(0);
-
   const [state, setState] = useState({
     count: 0,
     person: null,
@@ -53,7 +44,10 @@ const Counter = () => {
       {state.loading ? (
         <div>loading... </div>
       ) : (
-        <div>{state.person.name.first}</div>
+        <div>
+          <div>{state.person.name.first}</div>
+          <img src={state.person.picture.large} />
+        </div>
       )}
     </div>
   );
